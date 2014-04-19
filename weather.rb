@@ -8,19 +8,19 @@ city="Zagreb"
 class Weather
   API='http://api.openweathermap.org/data/2.5/weather?q=CITY&units=metric'
 
-  attr_accessor :city
+  attr_accessor :api_url, :weather
 
   def initialize(city)
-    @city = city
+    @api_url = API.gsub('CITY', city)
+    @weather = contact_openweathermap
   end
 
   # Public - Return formated response - temperature / weather
   #
   # Returns String
   def show
-    weather = contact_openweathermap
-    info = weather['weather'][0]['main']
-    temp = weather['main']['temp']
+    info = @weather['weather'][0]['main']
+    temp = @weather['main']['temp']
     "#{info} #{temp} °C"
   end
 
@@ -28,8 +28,7 @@ class Weather
   #
   # Returns Hash
   def contact_openweathermap
-    url = API.gsub('CITY', @city)
-    JSON.parse(open(url).read)
+    JSON.parse(open(@api_url).read)
   end
 end
 
