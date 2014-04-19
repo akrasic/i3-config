@@ -1,0 +1,3 @@
+#!/bin/bash
+# Pulseaudio volume
+pactl list sinks | sed -n -e '/State: RUNNING/,$p' | awk '/\tVolume/ {print $5}'
