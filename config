@@ -168,7 +168,7 @@ bar {
 }
 
 # Automatically set floating windows
-for_window [title="Pidgin"] floating enable
+for_window [title="Buddy List"] floating enable
 
 
 # Scratchpad
