@@ -167,10 +167,13 @@ bar {
         }
 }
 
+# Automatically set floating windows
+for_window [title="Pidgin"] floating enable
+
+
 # Scratchpad
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
