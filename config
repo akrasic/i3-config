@@ -168,6 +168,7 @@ bar {
 }
 
 # Automatically set floating windows
+for_window [title="SMPlayer"] floating enable
 for_window [title="Gajim"] floating enable
 for_window [title="Buddy List"] floating enable
 
