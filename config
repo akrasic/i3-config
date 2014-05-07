@@ -168,6 +168,7 @@ bar {
 }
 
 # Automatically set floating windows
+for_window [title="Mumble"] floating enable
 for_window [title="SpiderOak"] floating enable
 for_window [title="Sonata"] floating enable
 for_window [title="SMPlayer"] floating enable
