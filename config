@@ -168,6 +168,7 @@ bar {
 }
 
 # Automatically set floating windows
+for_window [title="SpiderOak"] floating enable
 for_window [title="Sonata"] floating enable
 for_window [title="SMPlayer"] floating enable
 for_window [title="Gajim"] floating enable
@@ -185,5 +186,6 @@ exec ~/.bin/connect.sh
 # Set Wallpaper
 exec --no-startup-id nitrogen --restore
 # Start volume manager
+exec --no-startup-id nm-applet
 exec --no-startup-id /usr/bin/volumeicon
 
