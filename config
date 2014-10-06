@@ -28,9 +28,21 @@ set $gray2 #333333
 # client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
 # client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 # class                 border  backgr. text    indicator
-client.focused          #859900 #859900 #fdf6e3 #2e9ef4
-client.focused_inactive #268bd2 #268bd2 #fdf6e3 #484e50
-client.unfocused        #333333 #93a1a1 #fdf6e3 #292d2e
+
+#
+# Solarized
+#
+# client.focused          #859900 #859900 #fdf6e3 #2e9ef4
+# client.focused_inactive #268bd2 #268bd2 #fdf6e3 #484e50
+# client.unfocused        #333333 #93a1a1 #fdf6e3 #292d2e
+
+#
+# base16
+#
+client.focused          #3498DB #3498DB #ECF0F1 #2ECC71
+client.unfocused        #3498DB #2C3E50 #ECF0F1 #2C3E50
+client.focused_inactive #3498DB #2C3E50 #ECF0F1 #2C3E50
+client.urgent           #3498DB #2C3E50 #ECF0F1 #2C3E50
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -168,12 +180,23 @@ bar {
 						# background #333333
 						# focused_workspace $gray2 $gray2 #FFFFFF
 						# inactive_workspace $gray1 $gray1 #AAAAAA
+						
+
             # solarized
-            background #073642
-            statusline #eee8d5
-            focused_workspace #cb4b16 #cb4b16 #eee8d5
-            active_workspace #cb4b16 #cb4b16 #eee8d5
-            inactive_workspace #b58900 #b58900 #eee8d5
+            # background #073642
+            # statusline #eee8d5
+            # focused_workspace #cb4b16 #cb4b16 #eee8d5
+            # active_workspace #cb4b16 #cb4b16 #eee8d5
+            # inactive_workspace #b58900 #b58900 #eee8d5
+            #
+
+						# base-16
+						statusline  #ECF0F1
+						background  #2C3E50
+						focused_workspace  #3498DB #2C3E50 #f5f5f5
+						active_workspace   #1ABC9C #2C3E50 #BDC3C7
+						inactive_workspace #2C3E50 #2C3E50 #BDC3C7
+						urgent_workspace   #f92672 #2C3E50 #BDC3C7
         }
 }
 
@@ -186,6 +209,7 @@ for_window [title="Gajim"] floating enable
 for_window [title="Buddy List"] floating enable
 for_window [title="Skype"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
+for_window [class="^.*"] border pixel 1
 
 
 # Scratchpad
