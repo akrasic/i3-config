@@ -1,5 +1,5 @@
 [global]
-    font = Terminus 8
+    font = Droid Sans Mono 8
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -64,7 +64,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "x0-0+16"
+    geometry = "400x50-30+20"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -142,7 +142,7 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
