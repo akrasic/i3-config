@@ -42,7 +42,7 @@ set $gray2 #333333
 client.focused          #3498DB #3498DB #ECF0F1 #2ECC71
 client.unfocused        #3498DB #2C3E50 #ECF0F1 #2C3E50
 client.focused_inactive #3498DB #2C3E50 #ECF0F1 #2C3E50
-client.urgent           #3498DB #2C3E50 #ECF0F1 #2C3E50
+client.urgent           #3498DB #8C2248 #ECF0F1 #2C3E50
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -203,7 +203,7 @@ bar {
 						focused_workspace  #3498DB #2C3E50 #f5f5f5
 						active_workspace   #1ABC9C #2C3E50 #BDC3C7
 						inactive_workspace #2C3E50 #2C3E50 #BDC3C7
-						urgent_workspace   #f92672 #2C3E50 #BDC3C7
+						urgent_workspace   #f92672 #FA3C80 #BDC3C7
         }
 }
 
@@ -216,7 +216,7 @@ for_window [title="Gajim"] floating enable
 for_window [title="Buddy List"] floating enable
 for_window [title="Skype"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
-for_window [class="^.*"] border pixel 1
+# for_window [class="^.*"] border pixel 1
 
 
 # Scratchpad
