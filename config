@@ -20,29 +20,11 @@ set $mod Mod4
 # chose a FreeType font, such as:
 font pango:DejaVu Sans Mono 8
 
-set $blue #005588
-set $gray1 #484848
-set $gray2 #333333
-
-# client.focused            $gray1   $gray1   #FFFFFF   #333333
-# client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
-# client.unfocused          $gray2   $gray2   #FFFFFF   #000000
 # class                 border  backgr. text    indicator
-
-#
-# Solarized
-#
-# client.focused          #859900 #859900 #fdf6e3 #2e9ef4
-# client.focused_inactive #268bd2 #268bd2 #fdf6e3 #484e50
-# client.unfocused        #333333 #93a1a1 #fdf6e3 #292d2e
-
-#
-# base16
-#
-client.focused          #3498DB #3498DB #ECF0F1 #2ECC71
-client.unfocused        #3498DB #2C3E50 #ECF0F1 #2C3E50
-client.focused_inactive #3498DB #2C3E50 #ECF0F1 #2C3E50
-client.urgent           #3498DB #8C2248 #ECF0F1 #2C3E50
+client.focused          #888888 #dddddd #222222 #2e9ef4
+client.focused_inactive #333333 #555555 #bbbbbb #484e50
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -57,14 +39,19 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec "dmenu_run -nb black -p run -l 5"
 
 # 
-# Using dmenu2 for this
+# Using dmenu2 for this with some base16 monokai coloring for fun
 #
-bindsym $mod+d exec "dmenu_run -l 3 -fn 'Droid Sans Mono-8' -p anaconda -w 400 -x 240 -y 25  -o 0.92 -z"
+bindsym $mod+d exec "dmenu_run -l 3 -fn 'Droid Sans Mono-8' -p \# -w 400 -x 800 -y 22  -o 0.92  -q -nb \#272822 -nf \#f92672 -sb \#49483e -sf \#66d9ef"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# Hide/show bar
+bindsym $mod+m bar mode toggle
+
+# Jump to urgent window
+bindsym $mod+x [urgent=latest] focus
 
 # change focus
 bindsym $mod+h focus left
@@ -140,7 +127,12 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# Shortcuts to some apps
+
 bindsym $mod+Shift+a exec "pavucontrol"
+bindsym $mod+Shift+f exec "firefox"
+bindsym $mod+Shift+g exec "chromium"
+bindsym $mod+Shift+t exec "thunderbird"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,31 +171,17 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-				position top
 				status_command ~/.i3/conky
+				position top
 				tray_output primary
+
+				# Current colorscheme. much scheme
         colors { 
-						# statusline #AAAAAA
-						# background #333333
-						# focused_workspace $gray2 $gray2 #FFFFFF
-						# inactive_workspace $gray1 $gray1 #AAAAAA
-						
-
-            # solarized
-            # background #073642
-            # statusline #eee8d5
-            # focused_workspace #cb4b16 #cb4b16 #eee8d5
-            # active_workspace #cb4b16 #cb4b16 #eee8d5
-            # inactive_workspace #b58900 #b58900 #eee8d5
-            #
-
-						# base-16
-						statusline  #ECF0F1
-						background  #2C3E50
-						focused_workspace  #3498DB #2C3E50 #f5f5f5
-						active_workspace   #1ABC9C #2C3E50 #BDC3C7
-						inactive_workspace #2C3E50 #2C3E50 #BDC3C7
-						urgent_workspace   #f92672 #FA3C80 #BDC3C7
+					background #333333
+					statusline #bbbbbb
+					focused_workspace #888888 #dddddd #222222
+					active_workspace #333333 #555555 #bbbbbb
+					inactive_workspace #333333 #555555 #bbbbbb
         }
 }
 
@@ -225,11 +203,9 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-## Connect to WiFI and restore wall paper
-exec ~/.bin/connect.sh
 # Set Wallpaper
 exec --no-startup-id nitrogen --restore
-# Start volume manager
+# Start Network Manager applet
 exec --no-startup-id nm-applet
+# Start volume manager
 exec --no-startup-id /usr/bin/volumeicon
-
