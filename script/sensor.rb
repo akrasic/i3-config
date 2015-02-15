@@ -9,9 +9,9 @@ temp = []
 `sensors`.split("\n").each do |s|
   case s
   when /CPUTIN/
-    temp << "CPU: #{get_temp(s)}"
-  when /SYSTIN/
-    temp << "SYS: #{get_temp(s)}"
+    temp << "[#{get_temp(s)} C]"
+#  when /SYSTIN/
+#    temp << "SYS: #{get_temp(s)}"
   end
 end
 
