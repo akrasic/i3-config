@@ -12,7 +12,7 @@ TEXT
 ,[{"full_text": " ☁ ${execi 300  ruby ~/.i3/script/weather.rb} ", "color":"\#fd971f"},
   {"full_text": " ❤ ${execi 2 ruby ~/.i3/script/sensor.rb } [$loadavg] ","color": "\#f92672"},
 	{"full_text": " ≣ [$membar] ", "color":"\#ae81ff"},
-  {"full_text": " ≈ ${wireless_essid wlp4s6} [${wireless_link_qual_perc wlp4s6}%] ","color":"\#75715e"},
+  {"full_text": " ≈ [wifi ${wireless_link_qual_perc wlp4s6}%] ","color":"\#75715e"},
   {"full_text": " ♪ [${execi 2 sh ~/.i3/script/pvlevel}] ", "color":"\#268BD2"},
   {"full_text": " ${time %a %d %b} ${time %H:%M} "}
 ]
