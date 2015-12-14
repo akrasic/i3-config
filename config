@@ -1,0 +1,276 @@
+#
+#====================== OLD COLOR SCHME
+set $foreground   #eceff1
+set $background   #263238
+set $color0       #263238
+set $color8       #37474f
+set $color1       #ff9800
+set $color9       #ffa74d
+set $color2       #8bc34a
+set $color10      #9ccc65
+set $color3       #ffc107
+set $color11      #ffa000
+set $color4       #03a9f4
+set $color12      #81d4fa
+set $color5       #ea427b
+set $color13      #ad1457
+set $color6       #009688
+set $color14      #26a69a
+set $color7       #cfd8dc
+set $color15      #eceff1
+set $transparent #000000FF
+
+
+
+set $FOCUS #18A4DB
+set $UNFOCUS #127196
+set $BORDERF #00c3FF
+set $BORDERU #00245E
+
+set $mod Mod4
+
+font pango:FontAwesome 8, pango: Droid Sans Mono 8
+
+floating_modifier $mod
+workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+# autostart programs
+exec --no-startup-id nitrogen --restore
+exec dunst -config ~/.i3/dunstrc
+exec --no-startup-id nm-applet
+exec --no-startup-id pidgin
+exec --no-startup-id volumeicon
+exec --no-startup-id SpiderOak
+exec --no-startup-id orage
+
+# start programs
+bindsym $mod+p exec --no-startup-id thunar /mnt/storo/GOLDO/
+bindsym $mod+Shift+f  exec --no-startup-id firefox
+bindsym $mod+g exec --no-startup-id chromium
+
+#Gaps
+gaps inner 2
+gaps outer 2
+
+# borders
+
+new_window normal
+hide_edge_borders vertical
+bindsym Control+Shift+x [class="^.*"]e
+
+# Define borders
+for_window [class="^.*"] border pixel 1
+for_window [class="URxvt"] border normal
+for_window [class="Leafpad"] border normal
+for_window [class="Lxappearance"] border normal
+for_window [class="Vlc"] border pixel 0
+for_window [class="mpv"] border pixel 0
+for_window [class="Pcmanfm"] border pixel 0
+for_window [class="Firefox"] border pixel 0
+for_window [class="Geary"] border pixel 0
+for_window [class="Lmms"] border pixel 0
+for_window [class="Feh"] border pixel 0
+#FLOATING
+# for_window [title="Sonata"] floating enable
+for_window [title="SMPlayer"] floating enable
+for_window [title="Gajim"] floating enable
+for_window [title="Buddy List"] floating enable
+for_window [title="xfce4-notifyd"] floating enable
+for_window [class="(?i)(orage|globaltime)"] floating enable
+#for_window [class="(?i)(gajim|pidgin)"] floating enable
+for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
+for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
+
+# start a terminal
+# bindsym $mod+Return exec urxvt -sbg
+bindsym $mod+Return exec termite
+
+# kill focused window
+bindsym $mod+q kill
+
+# Menu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
+#bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec dmenu_run
+
+# change focus VIM KEYS
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+v split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+#bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space $float
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+#
+#	Set Workspace names with icons
+#
+set $WS1 
+set $WS2 
+set $WS3 
+set $WS4 
+set $WS5 
+set $WS6 
+set $WS7 
+set $WS8 
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace S9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $WS1
+bindsym $mod+Shift+2 move container to workspace number $WS2
+bindsym $mod+Shift+3 move container to workspace number $WS3
+bindsym $mod+Shift+4 move container to workspace number $WS4
+bindsym $mod+Shift+5 move container to workspace number $WS5
+bindsym $mod+Shift+6 move container to workspace number $WS6
+bindsym $mod+Shift+7 move container to workspace number $WS7
+bindsym $mod+Shift+8 move container to workspace number $WS8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# MEDIA KEYS
+bindsym --release $mod+p exec mpc toggle
+bindsym --release $mod+Shift+period exec mpc next
+bindsym --release $mod+Shift+comma exec mpc prev
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+client.focused #81a2be #81a2be #1d1f21 #282a2e
+client.focused_inactive #373b41 #373b41 #969896 #282a2e
+client.unfocused #282a2e #282a2e #969896 #282a2e
+client.urgent #373b41 #cc6666 #ffffff #cc6666
+
+bar {
+	i3bar_command /usr/bin/i3bar
+ 	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
+	height 20
+	position top
+	mode dock
+	tray_output primary
+	tray_padding 1
+	separator_symbol "/"
+
+	colors {
+		background #eceff188
+		statusline #263238ff
+		separator #cfd8dcff
+		
+		#colors           outline  background  number
+		focused_workspace	$color6  $color6    $color15
+		active_workspace	$color6  $color6  	$color15
+		inactive_workspace	$color7  $color7    $color6
+		urgent_workspace	$color13 $color13   $color15
+	}
+}
+
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id lock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id lock && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id lock && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+
+#xflux
+# exec xflux -l 51.5333408
+exec notify-send -a i3 "loaded" "Welcome to i3."
