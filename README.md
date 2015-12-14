@@ -1,5 +1,13 @@
 *i3 configuration setup*
 
+Requirments:
+
+- FontAwesome
+- Weather Icons
+- i3-gaps (or i3-gaps-git )
+- i3blocks
+- Ruby
+
 Much tiling
 
 - Standard configuration, a bit modified
