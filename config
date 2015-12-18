@@ -91,7 +91,9 @@ bindsym $mod+Return exec termite
 bindsym $mod+q kill
 
 # Menu
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
+
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
 #bindsym $mod+d exec rofi -show run
 #bindsym $mod+d exec dmenu_run
 
@@ -239,12 +241,12 @@ bar {
 	mode dock
 	tray_output primary
 	tray_padding 1
-	separator_symbol "/"
+	separator_symbol 
 
 	colors {
 		background #eceff188
 		statusline #263238ff
-		separator #cfd8dcff
+		#separator #556270
 		
 		#colors           outline  background  number
 		focused_workspace	$color6  $color6    $color15
