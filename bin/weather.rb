@@ -9,7 +9,7 @@ require 'json'
 # Get info from open weather map
 class Weather
   API = 'http://api.openweathermap.org/data/2.5/weather?id=CITY&units=metric&APPID=APIKEY'
-  API_KEY = 'API-KEY-HERE'
+  API_KEY = '66f1ea14c4ea26d4be77231b4563dfdb'
 
   attr_accessor :api_url, :weather
 

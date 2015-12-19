@@ -20,6 +20,14 @@ set $color7       #cfd8dc
 set $color15      #eceff1
 set $transparent #000000FF
 
+#Molokai colors
+set $background #121112
+set $foreground #d0cfd0
+set $gray       #262622
+set $primary    #387bab
+set $secondary  #98ff19
+set $tertiary   #ff9926
+set $warning    #d74083
 
 
 set $FOCUS #18A4DB
@@ -228,10 +236,16 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-client.focused #81a2be #81a2be #1d1f21 #282a2e
-client.focused_inactive #373b41 #373b41 #969896 #282a2e
-client.unfocused #282a2e #282a2e #969896 #282a2e
-client.urgent #373b41 #cc6666 #ffffff #cc6666
+#client.focused #81a2be #81a2be #1d1f21 #282a2e
+#client.focused_inactive #373b41 #373b41 #969896 #282a2e
+#client.unfocused #282a2e #282a2e #969896 #282a2e
+#client.urgent #373b41 #cc6666 #ffffff #cc6666
+
+# colors                BORDER      BACKGROUND TEXT        INDICATOR
+client.focused          $primary    $primary   $background $secondary
+client.focused_inactive $gray       $gray      $foreground $gray
+client.unfocused        $gray       $gray      $background $gray
+client.urgent           $warning    $warning   $foreground $warning  
 
 bar {
 	i3bar_command /usr/bin/i3bar
@@ -244,8 +258,10 @@ bar {
 	separator_symbol 
 
 	colors {
-		background #eceff188
-		statusline #263238ff
+		        background $background
+        statusline $secondary
+#		background #eceff188
+#		statusline #263238ff
 		#separator #556270
 		
 		#colors           outline  background  number
@@ -253,6 +269,12 @@ bar {
 		active_workspace	$color6  $color6  	$color15
 		inactive_workspace	$color7  $color7    $color6
 		urgent_workspace	$color13 $color13   $color15
+
+
+    focused_workspace $background $background $tertiary
+    active_workspace $background $background $primary
+    inactive_workspace $background $background $primary
+    urgent_workspace $background $background $warning
 	}
 }
 
