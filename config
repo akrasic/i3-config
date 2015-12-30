@@ -1,39 +1,21 @@
 #
 #====================== OLD COLOR SCHME
-set $foreground   #eceff1
-set $background   #263238
-set $color0       #263238
-set $color8       #37474f
-set $color1       #ff9800
-set $color9       #ffa74d
-set $color2       #8bc34a
-set $color10      #9ccc65
-set $color3       #ffc107
-set $color11      #ffa000
-set $color4       #03a9f4
-set $color12      #81d4fa
-set $color5       #ea427b
-set $color13      #ad1457
-set $color6       #009688
-set $color14      #26a69a
-set $color7       #cfd8dc
-set $color15      #eceff1
-set $transparent #000000FF
-
-#Molokai colors
-set $background #121112
-set $foreground #d0cfd0
-set $gray       #262622
-set $primary    #387bab
-set $secondary  #98ff19
-set $tertiary   #ff9926
-set $warning    #d74083
-
-
-set $FOCUS #18A4DB
-set $UNFOCUS #127196
-set $BORDERF #00c3FF
-set $BORDERU #00245E
+set $base00 #272822
+set $base01 #383830
+set $base02 #49483e
+set $base03 #75715e
+set $base04 #a59f85
+set $base05 #f8f8f2
+set $base06 #f5f4f1
+set $base07 #f9f8f5
+set $base08 #f92672
+set $base09 #fd971f
+set $base0A #f4bf75
+set $base0B #a6e22e
+set $base0C #a1efe4
+set $base0D #66d9ef
+set $base0E #ae81ff
+set $base0F #cc6633
 
 set $mod Mod4
 
@@ -241,11 +223,11 @@ bindsym $mod+r mode "resize"
 #client.unfocused #282a2e #282a2e #969896 #282a2e
 #client.urgent #373b41 #cc6666 #ffffff #cc6666
 
-# colors                BORDER      BACKGROUND TEXT        INDICATOR
-client.focused          $primary    $primary   $background $secondary
-client.focused_inactive $gray       $gray      $foreground $gray
-client.unfocused        $gray       $gray      $background $gray
-client.urgent           $warning    $warning   $foreground $warning  
+# colors                BORDER      BACKGROUND	TEXT        INDICATOR
+client.focused 					$base0D 		$base0D 		$base00			$base01
+client.focused_inactive $base02 		$base02 		$base03 		$base01
+client.unfocused 				$base01 		$base01 		$base03 		$base01
+client.urgent 					$base02 		$base08 		$base07 		$base08
 
 bar {
 	i3bar_command /usr/bin/i3bar
@@ -258,23 +240,13 @@ bar {
 	separator_symbol 
 
 	colors {
-		        background $background
-        statusline $secondary
-#		background #eceff188
-#		statusline #263238ff
-		#separator #556270
-		
-		#colors           outline  background  number
-		focused_workspace	$color6  $color6    $color15
-		active_workspace	$color6  $color6  	$color15
-		inactive_workspace	$color7  $color7    $color6
-		urgent_workspace	$color13 $color13   $color15
-
-
-    focused_workspace $background $background $tertiary
-    active_workspace $background $background $primary
-    inactive_workspace $background $background $primary
-    urgent_workspace $background $background $warning
+		separator $base03
+		background $base01
+		statusline $base05
+		focused_workspace $base0C $base0D $base00
+		active_workspace $base02 $base02 $base07
+		inactive_workspace $base01 $base01 $base03
+		urgent_workspace $base08 $base08 $base07
 	}
 }
 
