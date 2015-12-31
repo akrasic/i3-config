@@ -82,6 +82,7 @@ for_window [class="(?i)(orage|globaltime)"] floating enable
 #for_window [class="(?i)(gajim|pidgin)"] floating enable
 for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
 for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
+for_window [class="mpv"] floating enable
 
 # start a terminal
 # bindsym $mod+Return exec urxvt -sbg
@@ -91,7 +92,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+q kill
 
 # Menu
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 150 -markup -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "Droid Sans 18"
 
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
 #bindsym $mod+d exec rofi -show run
@@ -137,8 +138,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-#bindsym $mod+Shift+space floating toggle
-bindsym $mod+Shift+space $float
+bindsym $mod+Shift+space floating toggle
+#bindsym $mod+Shift+space $float
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
