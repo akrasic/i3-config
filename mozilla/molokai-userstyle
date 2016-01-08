@@ -1,0 +1,242 @@
+/* AGENT_SHEET */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+#appcontent,
+#appcontent > #content,
+#appcontent > #content > tabbox > tabpanels {
+background: #181818 !important;
+}
+           
+           
+tabs#tabbrowser-tabs, tabs#tabbrowser-tabs * {
+-moz-appearance: none !important;
+border-radius: 0px !important;
+border: none !important;
+border-bottom: none !important;
+background-image: none !important;
+margin-top: 0px !important;
+margin-bottom: 0px !important;
+max-height: 23px !important;
+min-height: 23px !important;
+}
+      
+tabs#tabbrowser-tabs {
+background: #181818 !important;
+font-weight: normal !important;
+text-align: center !important;
+padding-top: 0px !important;
+margin-top: -3px !important;
+margin-left: 0px !important;
+padding-top: 0px !important;
+border-bottom: 0px !important;
+}
+ 
+.tabbrowser-tab {
+color: #66D9EF !important;
+background: #272822 !important;
+margin-left: 0px !important;
+border-bottom: 0px !important;
+}
+ 
+.tabbrowser-tab[selected=true] {
+color: #F92672 !important;
+background: #272822 !important;
+border-bottom: 0px !important;
+box-shadow: none !important;
+}
+      
+.tabbrowser-tab .tab-text {
+margin-left: 3px !important;
+margin-right: 3px !important;
+margin-top: 2px !important;
+padding-top: 5px !important;
+font-family: "Droid Sans Mono" !important;
+font-size: 11px !important;
+}
+ 
+.tabbrowser-tabs:not([drag=detach]) > .tabbrowser-tab:not([pinned])[fadein] {
+min-width: 30px !important;
+max-width: 100% !important;
+}
+ 
+/* HIDE */
+toolbarbutton#appmenu-toolbar-button,
+toolbarbutton#alltabs-button,
+toolbarbutton#new-tab-button,
+#identity-box,
+.tabbrowser-arrowscrollbox > .scrollbutton-up,
+.tabbrowser-arrowscrollbox > .scrollbutton-down,
+.tabs-closebutton-box,
+.tabs-border-bottom,
+.tab-throbber,
+.tabs-newtab-button,
+.tab-throbber[progress],
+.tabbrowser-tab:not([pinned]) .tab-icon-image,
+#liberator-separator,
+#sidebar-search-container,
+.notificationbox-stack,
+#urlbar-stop-button,
+#urlbar-reload-button,
+#urlbar-go-button,
+#bookmarks-menu-button,
+.tab-background-start,
+.urlbar-history-dropmarker,
+#notification-popup-box,
+.tab-background-end {
+display: none !important;
+}
+ 
+#TabsToolbar::after { display: none !important; }
+#navigator-toolbox { border: 0 !important; margin-bottom: -1px !important; }
+.tabbrowser-tab::before, .tabbrowser-tab::after { background: url(none) !important; }
+ 
+.tabbrowser-tab * {
+background: url(none) !important; list-style-image: none !important;
+margin: 0 0 0 0 !important; padding: 0 0 0 0 !important; -moz-appearance: none !important;
+}
+ 
+#TabsToolbar, #tabbrowser-tabs {
+-moz-appearance: none !important;
+margin-left: -15px !important; margin-right: -8px !important;
+}
+
+
+/* Pinned Tabs & Icon Size */
+#tabbrowser-tabs .tabbrowser-tab[pinned] {
+  width: 38px !important;
+}
+#tabbrowser-tabs .tabbrowser-tab[pinned] label {
+  display: none !important;
+}
+#tabbrowser-tabs .tabbrowser-tab .tab-icon-image {
+  margin: 0 -10px 0 10px !important;
+  padding: 5px 3px 5px 3px !important;
+}
+ 
+/* NavBar / URLBar */
+#nav-bar {
+    background: #1D2426 !important;
+    height: 25px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+#urlbar {
+    border: none !important;
+    background: none !important;
+    color: #FD971F !important;
+    font-family: "Droid Sans Mono" !important;
+    font-size: 11px  !important;
+    height: 20px !important;
+    text-align: center !important;
+    padding-bottom: 3px !important;
+}
+#urlbar-wrapper > #forward-button {
+    margin:0 !important;
+}
+
+#urlbar-wrapper {
+    clip-path: none !important;
+}
+#back-button[disabled] > .toolbarbutton-icon,
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon{
+    background: none !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+#back-button > .toolbarbutton-icon{
+    -moz-image-region: rect(0,54px,18px,36px) !important;
+    border-radius: 0 !important;
+    padding: 2px 2px !important;
+    margin-bottom: 3px !important;
+}
+
+#forward-button > .toolbarbutton-icon{
+    padding: 5px 2px !important;
+    margin-bottom: 3px !important;
+}
+
+/* Change Icons */
+#PanelUI-menu-button {
+	list-style-image: url('data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%10%00%00%00%10%08%06%00%00%00%1F%F3%FFa%00%00%00%04sBIT%08%08%08%08%7C%08d%88%00%00%00%09pHYs%00%00%0D%D7%00%00%0D%D7%01B%28%9Bx%00%00%00%19tEXtSoftware%00www.inkscape.org%9B%EE%3C%1A%00%00%009IDAT8%8Dc%60%A0%1002000TT%B4%0B%92%A3%B9%A3%A3%F2%3DciES%0A%03%23%E3l%B2%AC%FF%FF%3F%95%89%2C%8D%83%0A%8C%06"%15%C0h%20R%01%00%00%E2%86%1A%86%C2%C8%D8%A4%00%00%00%00IEND%AEB%60%82') !important;
+	-moz-image-region: rect(0,16px,16px,0) !important;
+	background: transparent !important;
+	border: transparent !important;
+	border-top: transparent !important;
+	border-left: transparent !important;
+	border-right: transparent !important;
+}
+#PanelUI-menu-button:hover:not([disabled="true"]) {
+	-moz-image-region: rect(0,16px,16px,0px) !important;
+	background: transparent !important;
+	border: transparent !important;
+	border-top: transparent !important;
+	border-left: transparent !important;
+	border-right: transparent !important;
+}
+#downloads-button {
+    background: url('http://i.imgur.com/dxQDPO2.png') !important;
+    background-repeat: no-repeat  !important;
+    background-position: center !important;
+    opacity: 1 !important;
+    margin-left: 0px !important;
+    margin-right: 15px !important;
+    box-shadow: none !important;
+    width: 10px !important;
+}
+#toolbarbutton-icon .Downloads,
+#downloads-indicator-icon,
+#downloads-indicator-progress-area,
+#downloads-button .button-text {
+    display: none !important;
+}
+
+#downloads-indicator-anchor {opacity: 0 !important;}
+
+#downloads-button:hover {
+    opacity: 1 !important;
+    box-shadow: none !important;
+    background: url('http://i.imgur.com/I8kiKbo.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* scrollbar */
+scrollbar {
+-moz-appearance: none !important;
+position: relative;
+background: none transparent;
+z-index: 2147483647;
+padding: 0px 0px 0px 0px!important;
+}
+ 
+scrollbar[orient="vertical"] {
+-moz-margin-start: -3px;
+min-width: 8px;
+max-width: 8px;
+padding: 0px 0px 0px 0px!important;
+}
+ 
+scrollbar[orient="horizontal"] {
+margin-top: -3px;
+min-height: 3px;
+max-height: 3px;
+}
+ 
+scrollbar thumb {
+-moz-appearance: none !important;
+border: none !important;
+border-radius: 0 !important;
+background: #8FA388!important;
+}
+ 
+scrollbar[orient="vertical"] thumb{
+min-height: 100px!important;
+}
+ 
+scrollbar[orient="horizontal"] thumb{
+min-width: 100px!important;
+}
+scrollbar scrollbarbutton{
+visibility: collapse!important;
+}
