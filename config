@@ -42,7 +42,8 @@ exec dunst -config ~/.i3/dunstrc
 exec --no-startup-id nm-applet
 exec --no-startup-id pidgin
 exec --no-startup-id volumeicon
-exec --no-startup-id SpiderOak
+exec --no-startup-id SpiderOakOne
+exec --no-startup-id xfce4-clipman
 exec --no-startup-id orage
 
 # start programs
