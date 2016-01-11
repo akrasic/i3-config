@@ -246,9 +246,9 @@ bar {
 	separator_symbol 
 
 	colors {
-		background #eceff188
-		statusline #263238ff
-		#separator #556270
+		background #eceff1
+		statusline #263238
+		separator #556270
 		
 		#colors           outline  background  number
 		focused_workspace	$color6  $color6    $color15
