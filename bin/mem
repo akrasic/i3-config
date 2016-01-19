@@ -1,8 +1,8 @@
 #!/bin/bash
 #	Show used and total memory
 
-available=$(awk '/MemAvailable/ {$2=$2/1024; printf("%3.2f\n", $2)}' /proc/meminfo)
+available=$(awk '/MemAvailable/ {$2=$2/1024; printf("%3.0f\n", $2)}' /proc/meminfo)
 total=$(awk '/MemTotal/ {$2=$2/1024**2; printf("%3.1f\n", $2)}' /proc/meminfo )
 
-echo "${available}"
+echo "${available} MB"
 echo ""
