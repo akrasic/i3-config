@@ -1,6 +1,6 @@
 # <- this tricks vim into using syntax highlighting
 [global]
-    font = "Droid Sans 8"
+    font = "Droid Sans 9"
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes

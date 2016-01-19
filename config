@@ -28,7 +28,8 @@ focus_on_window_activation urgent
 
 # autostart programs
 exec --no-startup-id nitrogen --restore
-exec dunst -config ~/.i3/dunstrc
+exec --no-startup-id compton -o 0.3 -i 1.0 -b --config ~/.i3/compton.conf
+exec --no-startup-id dunst -config ~/.i3/dunstrc
 exec --no-startup-id nm-applet
 exec --no-startup-id pidgin
 exec --no-startup-id volumeicon
@@ -82,7 +83,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+q kill
 
 # Menu
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
 #bindsym $mod+d exec rofi -show run
@@ -143,14 +144,14 @@ bindsym $mod+a focus parent
 #
 #	Set Workspace names with icons
 #
-set $WS1 
-set $WS2 
-set $WS3 
-set $WS4 
-set $WS5 
-set $WS6 
-set $WS7 
-set $WS8 
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
+set $WS5 5:
+set $WS6 6:
+set $WS7 7:
+set $WS8 8:
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -231,18 +232,20 @@ client.unfocused 				$base01 		$base01 		$base03 		$base01
 client.urgent 					$base02 		$base08 		$base07 		$base08
 
 bar {
-	i3bar_command /usr/bin/i3bar
+	i3bar_command /usr/bin/i3bar -t
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
 	height 20
 	position top
 	mode dock
 	tray_output primary
 	tray_padding 1
-	separator_symbol 
+	# separator_symbol 
+	separator_symbol |
 
 	colors {
 		separator $base03
-		background $base01
+		# Set as transparent
+		background #38383012 # $base01
 		statusline $base05
 		focused_workspace $base0C $base0D $base00
 		active_workspace $base02 $base02 $base07
