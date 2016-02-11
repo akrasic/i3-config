@@ -19,7 +19,7 @@ set $base0F #cc6633
 
 set $mod Mod4
 
-font pango:FontAwesome 8, pango: Droid Sans Mono 8
+font pango:FontAwesome 8, pango: SFNS Regular 8
 
 floating_modifier $mod
 workspace_auto_back_and_forth yes
@@ -74,6 +74,7 @@ for_window [class="(?i)(orage|globaltime)"] floating enable
 #for_window [class="(?i)(gajim|pidgin)"] floating enable
 for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
 for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
+for_window [class="SpiderOak"] floating enable; resize shrink right 31px
 
 # start a terminal
 # bindsym $mod+Return exec urxvt -sbg
