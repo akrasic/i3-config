@@ -19,7 +19,8 @@ set $base0F #cc6633
 
 set $mod Mod4
 
-font pango:FontAwesome 8, pango: SFNS Regular 8
+# font pango:FontAwesome 8, pango: SFNS Thin 8
+font pango:FontAwesome 8, pango: Fira Sans Light 8
 
 floating_modifier $mod
 workspace_auto_back_and_forth yes
