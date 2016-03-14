@@ -8,6 +8,9 @@ Requirments:
 - i3blocks
 - Ruby
 
+Themes would be added in branches, currently available:
+- Monokai theme under test/monokai branch
+
 Much tiling
 
 - Standard configuration, a bit modified
