@@ -1,0 +1,96 @@
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+! set font
+! URxvt.font: xft:Fira Mono for Powerline:size=7
+URxvt.font: xft:Hack:size=8
+
+! Load extensions
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+! Fix letter spacing
+URxvt.letterSpace: -1
+
+!! Larger history limit
+urxvt.saveLines: 1000000
+! Disable the scrollbar
+URxvt*scrollBar: false
+
+!
+! effects
+!
+! use font glyphs 
+URxvt*skipBuiltinGlyphs:    true
+! number of lines between row
+URxvt*lineSpace:            0
+! space between letters
+URxvt*letterSpace:          -1
+! cursor underline  
+URxvt*cursorUnderline:      false
+! cursor blinking 
+URxvt*cursorBlink:          false
+! blank the pointer on keypress or timeout
+URxvt*pointerBlank:         false
+! reverve bf and fg colors
+URxvt*reverseVideo:         false
+
+!
+! borders
+!
+! pixels for external border
+URxvt*externalBorder:     0
+! pixels for internal border
+URxvt*internalBorder:     0
+! remove border
+URxvt*borderLess:         false
+
+!!! URXVT colors - Monokai from terminal.sexy
+! special
+*.foreground:   #f8f8f2
+*.background:   #272822
+*.cursorColor:  #f8f8f2
+
+! black
+*.color0:       #272822
+*.color8:       #75715e
+
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+
+! white
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
+
