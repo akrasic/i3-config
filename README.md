@@ -7,6 +7,7 @@ Requirments:
 - i3-gaps (or i3-gaps-git )
 - i3blocks
 - Ruby
+- Fira Sans font
 
 Much tiling
 
