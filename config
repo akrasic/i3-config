@@ -1,21 +1,13 @@
-#
-#====================== OLD COLOR SCHME
-set $base00 #272822
-set $base01 #383830
-set $base02 #49483e
-set $base03 #75715e
-set $base04 #a59f85
-set $base05 #f8f8f2
-set $base06 #f5f4f1
-set $base07 #f9f8f5
-set $base08 #f92672
-set $base09 #fd971f
-set $base0A #f4bf75
-set $base0B #a6e22e
-set $base0C #a1efe4
-set $base0D #66d9ef
-set $base0E #ae81ff
-set $base0F #cc6633
+#Color scheme
+set $green #98971a
+set $red   #fb4934
+set $lgray #a89984
+set $dgray #928374
+set $white #ebdbb2
+set $black #282828
+set $blue  #458588
+set $cyan  #689d6a
+set $purple #b16286
 
 set $mod Mod4
 
@@ -29,7 +21,7 @@ focus_on_window_activation urgent
 
 # autostart programs
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id compton -o 0.3 -i 1.0 -b --config ~/.i3/compton.conf
+exec --no-startup-id compton -f --config ~/.i3/compton.conf
 exec --no-startup-id dunst -config ~/.i3/dunstrc
 exec --no-startup-id nm-applet
 exec --no-startup-id pidgin
@@ -72,7 +64,6 @@ for_window [title="Gajim"] floating enable
 for_window [title="Buddy List"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
 for_window [class="(?i)(orage|globaltime)"] floating enable
-#for_window [class="(?i)(gajim|pidgin)"] floating enable
 for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
 for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
 for_window [class="SpiderOak"] floating enable; resize shrink right 31px
@@ -85,7 +76,9 @@ bindsym $mod+Return exec urxvt -sbg
 bindsym $mod+q kill
 
 # Menu
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -font "Fira Sans Regular 10" -lines 8 -eh 2 -padding 50 -bw0 -width 65 -bw 0 -bg "#282828" -hlbg "#689d6a" -hlfg "#32302f" -mesg "what" -bc "#282828" -opacity "92"
+# Old iteration
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
 #bindsym $mod+d exec rofi -show run
@@ -219,22 +212,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-#client.focused #81a2be #81a2be #1d1f21 #282a2e
-#client.focused_inactive #373b41 #373b41 #969896 #282a2e
-#client.unfocused #282a2e #282a2e #969896 #282a2e
-#client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 # colors                BORDER      BACKGROUND	TEXT        INDICATOR
-client.focused 					$base0D 		$base0D 		$base00			$base01
-client.focused_inactive $base02 		$base02 		$base03 		$base01
-client.unfocused 				$base01 		$base01 		$base03 		$base01
-client.urgent 					$base02 		$base08 		$base07 		$base08
+client.focused          $cyan $cyan $black $cyan
+client.unfocused        $black $black $dgray $black
+client.focused_inactive $black $black $white $black
+client.urgent           $purple   $purple   $white $purple
 
 bar {
-	i3bar_command /usr/bin/i3bar
+	i3bar_command /usr/bin/i3bar -t
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
 	height 20
 	position top
@@ -242,18 +228,15 @@ bar {
 	tray_output primary
 	tray_padding 1
 	separator_symbol 
-	#separator_symbol |
 
 	colors {
-		separator $base03
-		# Set as transparent
-		# background #38383012 # $base01
-		background $base01
-		statusline $base05
-		focused_workspace $base0C $base0D $base00
-		active_workspace $base02 $base02 $base07
-		inactive_workspace $base01 $base01 $base03
-		urgent_workspace $base08 $base08 $base07
+		background $black
+		separator $cyan
+		statusline $cyan
+		#                  border             background         text
+		focused_workspace  $black $black $white
+		inactive_workspace $black $black $dgray
+		urgent_workspace   $black $purple $white
 	}
 }
 
@@ -272,8 +255,4 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-
-
-#xflux
-# exec xflux -l 51.5333408
 exec notify-send -a i3 "loaded" "Welcome to i3."
