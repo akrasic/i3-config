@@ -6,6 +6,11 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
+!
+!	URXVT CONFIGURATION
+!
+!	Dont forget to xrdb .Xresources 
+
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt*scrollWithBuffer: true
 
@@ -15,10 +20,18 @@ URxvt*scrollTtyKeypress: true
 ! URxvt.font: xft:Fira Mono for Powerline:size=7
 URxvt.font: xft:Hack:size=8
 
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 ! Load extensions
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.perl-ext-common: clipboard,default,matcher
+URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
+
+! Be lazy and enable Ctrl+Shift C/P 
+! Requires: xsel xclip
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+URxvt.iso14755 : false
 
 ! Fix letter spacing
 URxvt.letterSpace: -1
@@ -32,65 +45,56 @@ URxvt*scrollBar: false
 ! effects
 !
 ! use font glyphs 
-URxvt*skipBuiltinGlyphs:    true
+URxvt*skipBuiltinGlyphs: true
 ! number of lines between row
-URxvt*lineSpace:            0
+URxvt*lineSpace: 0
 ! space between letters
-URxvt*letterSpace:          -1
+URxvt*letterSpace: -2
 ! cursor underline  
-URxvt*cursorUnderline:      false
+URxvt*cursorUnderline: false
 ! cursor blinking 
-URxvt*cursorBlink:          false
+URxvt*cursorBlink: false
 ! blank the pointer on keypress or timeout
-URxvt*pointerBlank:         false
+URxvt*pointerBlank: false
 ! reverve bf and fg colors
-URxvt*reverseVideo:         false
+URxvt*reverseVideo: false
 
 !
 ! borders
 !
 ! pixels for external border
-URxvt*externalBorder:     0
+URxvt*externalBorder: 0
 ! pixels for internal border
-URxvt*internalBorder:     0
+URxvt*internalBorder: 0
 ! remove border
-URxvt*borderLess:         false
+URxvt*borderLess: false
 
-!!! URXVT colors - Monokai from terminal.sexy
-! special
-*.foreground:   #f8f8f2
-*.background:   #272822
-*.cursorColor:  #f8f8f2
-
-! black
-*.color0:       #272822
-*.color8:       #75715e
-
-! red
-*.color1:       #f92672
-*.color9:       #f92672
-
-! green
-*.color2:       #a6e22e
-*.color10:      #a6e22e
-
-! yellow
-*.color3:       #f4bf75
-*.color11:      #f4bf75
-
-! blue
-*.color4:       #66d9ef
-*.color12:      #66d9ef
-
-! magenta
-*.color5:       #ae81ff
-*.color13:      #ae81ff
-
-! cyan
-*.color6:       #a1efe4
-*.color14:      #a1efe4
-
-! white
-*.color7:       #f8f8f2
-*.color15:      #f9f8f5
-
+! Gruvbox theme baby
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
