@@ -22,6 +22,7 @@
     horizontal_padding = 8
     separator_color = frame
     startup_notification = false
+		browser = /usr/bin/chromium
 
 [frame]
     width = 1
