@@ -17,11 +17,12 @@ URxvt*scrollWithBuffer: true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
 ! set font
-! URxvt.font: xft:Fira Mono for Powerline:size=7
+! URxvt.font: xft:Fira Mono for Powerline:size=9
 URxvt.font: xft:Hack:size=8
 
-URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+URxvt.iconFile: /usr/share/icons/Faenza/apps/scalable/terminal.svg
+! URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+! URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 ! Load extensions
 URxvt.perl-ext-common: clipboard,default,matcher
 URxvt.url-launcher: /usr/bin/chromium
@@ -29,8 +30,8 @@ URxvt.matcher.button: 1
 
 ! Be lazy and enable Ctrl+Shift C/P 
 ! Requires: xsel xclip
-URxvt.clipboard.copycmd:  xsel -ib
-URxvt.clipboard.pastecmd: xsel -ob
+!URxvt.clipboard.copycmd:  xsel -ib
+!URxvt.clipboard.pastecmd: xsel -ob
 URxvt.iso14755 : false
 
 ! Fix letter spacing
@@ -98,3 +99,32 @@ URxvt*borderLess: false
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
+
+#
+#define base00 #282828
+#define base01 #fbf1c7
+#define base07 #32302f
+#define base02 #689d6a
+
+rofi.terminal:            /usr/bin/urxvtc
+rofi.run-shell-command:   /usr/bin/urxvtc -e '{cmd}'
+rofi.eh:                  2
+rofi.lines:               5
+rofi.width:               800px
+rofi.opacity:             90
+rofi.padding:							20
+rofi.borderwidth:         0
+rofi.location:            0
+rofi.font:                Fira Sans Regular 11
+rofi.color-enabled:       true
+rofi.separator-style:     solid
+rofi.bc:									base00
+rofi.columns:							1
+
+! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
+rofi.color-normal: base00,  base01,  base00,  base02,  base07
+rofi.color-urgent: base00,  base07,  base00,  base02,  base07
+rofi.color-active: base00,  base07,  base00,  base02,  base07
+
+!                  'bg',    'border'
+rofi.color-window: base00,  base00
