@@ -35,29 +35,50 @@ bindsym $mod+p exec --no-startup-id thunar /mnt/storo/GOLDO/
 bindsym $mod+Shift+f  exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id chromium
 
+# launch programs
+mode "launch" {
+	bindsym Print exec scrot, mode "default"
+
+	# Bind some on the ASD row
+	bindsym a exec geany, mode "default"	
+	bindsym s exec steam, mode "default"
+	bindsym d exec deluge, mode "defalt"
+	bindsym f exec firefox, mode "default"
+	bindsym g exec thunar, mode "default"
+	bindsym h exec skype, mode "default"
+
+	bindsym c exec chromium, mode "default"
+	bindsym t exec thunderbird, mode "default"
+	bindsym v exec vlc, mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+m  mode "launch"
 #Gaps
 gaps inner 2
 gaps outer 2
 
 # borders
 
-new_window normal
+#new_window normal
 hide_edge_borders vertical
-bindsym Control+Shift+x [class="^.*"]e
+bindsym Control+Shift+x [class="^.*"]
 
 # Define borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 for_window [class="URxvt"] border normal
 for_window [class="Leafpad"] border normal
 for_window [class="Lxappearance"] border normal
-for_window [class="Vlc"] border pixel 0
-for_window [class="mpv"] border pixel 0
 for_window [class="Pcmanfm"] border pixel 0
 for_window [class="Firefox"] border pixel 0
 for_window [class="Geary"] border pixel 0
 for_window [class="Lmms"] border pixel 0
 for_window [class="Feh"] border pixel 0
-#FLOATING
+
+# Define floating
 # for_window [title="Sonata"] floating enable
 for_window [title="SMPlayer"] floating enable
 for_window [title="Gajim"] floating enable
@@ -65,24 +86,22 @@ for_window [title="Buddy List"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
 for_window [class="(?i)(orage|globaltime)"] floating enable
 for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
-for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
+for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 100px
 for_window [class="SpiderOak"] floating enable; resize shrink right 31px
+for_window [class="Vlc"] floating enable
 
-# start a terminal
+# start a terminal to your liking
+# URXVT
 bindsym $mod+Return exec urxvt -sbg
-#bindsym $mod+Return exec termite
+# Termite
+bindsym $mod+Shift+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
 
-# Menu
-bindsym $mod+d exec rofi -show run -font "Fira Sans Regular 10" -lines 8 -eh 2 -padding 50 -bw0 -width 65 -bw 0 -bg "#282828" -hlbg "#689d6a" -hlfg "#32302f" -mesg "what" -bc "#282828" -opacity "92"
-# Old iteration
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
-#bindsym $mod+d exec rofi -show run
-#bindsym $mod+d exec dmenu_run
+# Menu
+bindsym $mod+d exec rofi -show run 
 
 # change focus VIM KEYS
 bindsym $mod+h focus left
@@ -124,7 +143,6 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-#bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
@@ -134,7 +152,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+n focus child
 
 #
 #	Set Workspace names with icons
@@ -220,9 +238,9 @@ client.focused_inactive $black $black $white $black
 client.urgent           $purple   $purple   $white $purple
 
 bar {
-	i3bar_command /usr/bin/i3bar -t
+	i3bar_command /usr/bin/i3bar
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
-	height 20
+	height 25
 	position top
 	mode dock
 	tray_output primary
