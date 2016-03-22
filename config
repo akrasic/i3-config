@@ -92,9 +92,9 @@ for_window [class="Vlc"] floating enable
 
 # start a terminal to your liking
 # URXVT
-bindsym $mod+Return exec urxvt -sbg
+bindsym $mod+Shift+Return exec urxvt -sbg
 # Termite
-bindsym $mod+Shift+Return exec termite
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
@@ -158,8 +158,8 @@ bindsym $mod+n focus child
 #	Set Workspace names with icons
 #
 set $WS1 1:
-set $WS2 2:
-set $WS3 3:
+set $WS2 2:
+set $WS3 3:
 set $WS4 4:
 set $WS5 5:
 set $WS6 6:
@@ -240,7 +240,7 @@ client.urgent           $purple   $purple   $white $purple
 bar {
 	i3bar_command /usr/bin/i3bar
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
-	height 25
+	height 20
 	position top
 	mode dock
 	tray_output primary
