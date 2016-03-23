@@ -6,5 +6,5 @@ if nmcli -t -f name,type con show --active | grep -q vpn; then
   vpnname=$(nmcli -t -f name,type con show --active  | grep vpn | cut -d: -f1)
   echo "  ${vpnname} connected"
 else
-  echo " offline"
+  echo "  off"
 fi
