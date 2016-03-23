@@ -11,27 +11,20 @@ set $purple #b16286
 
 set $mod Mod4
 
-# font pango:FontAwesome 8, pango: SFNS Thin 8
-font pango:FontAwesome 8, pango: Fira Sans Light 8
+font pango:FontAwesome 10, pango: Fira Sans Medium 8
+
+#Gaps
+gaps inner 2
+gaps outer 2
+hide_edge_borders vertical
 
 floating_modifier $mod
 workspace_auto_back_and_forth yes
 force_display_urgency_hint 0 ms
 focus_on_window_activation urgent
 
-# autostart programs
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton -f --config ~/.i3/compton.conf
-exec --no-startup-id dunst -config ~/.i3/dunstrc
-exec --no-startup-id nm-applet
-exec --no-startup-id pidgin
-exec --no-startup-id volumeicon
-exec --no-startup-id SpiderOakONE
-exec --no-startup-id xfce4-clipman
-exec --no-startup-id orage
 
 # start programs
-bindsym $mod+p exec --no-startup-id thunar /mnt/storo/GOLDO/
 bindsym $mod+Shift+f  exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id chromium
 
@@ -57,14 +50,8 @@ mode "launch" {
 }
 
 bindsym $mod+m  mode "launch"
-#Gaps
-gaps inner 2
-gaps outer 2
-
-# borders
 
 #new_window normal
-hide_edge_borders vertical
 bindsym Control+Shift+x [class="^.*"]
 
 # Define borders
@@ -91,14 +78,13 @@ for_window [class="SpiderOak"] floating enable; resize shrink right 31px
 for_window [class="Vlc"] floating enable
 
 # start a terminal to your liking
-# URXVT
-bindsym $mod+Shift+Return exec urxvt -sbg
 # Termite
 bindsym $mod+Return exec termite
+# URXVT
+bindsym $mod+Shift+Return exec urxvt -sbg
 
 # kill focused window
 bindsym $mod+q kill
-
 
 # Menu
 bindsym $mod+d exec rofi -show run 
@@ -157,10 +143,10 @@ bindsym $mod+n focus child
 #
 #	Set Workspace names with icons
 #
-set $WS1 1:
-set $WS2 2:
-set $WS3 3:
-set $WS4 4:
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
 set $WS5 5:
 set $WS6 6:
 set $WS7 7:
@@ -240,19 +226,24 @@ client.urgent           $purple   $purple   $white $purple
 bar {
 	i3bar_command /usr/bin/i3bar
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
-	height 20
+	height 25
 	position top
 	mode dock
 	tray_output primary
-	tray_padding 1
-	separator_symbol 
+	tray_padding 2
+	separator_symbol 
+	# separator_symbol 
+	# separator_symbol 
+	binding_mode_indicator yes
+	strip_workspace_numbers yes
+	font pango:Fira Sans Medium 8
 
 	colors {
 		background $black
 		separator $cyan
 		statusline $cyan
 		#                  border             background         text
-		focused_workspace  $black $black $white
+		focused_workspace  $black $cyan $white
 		inactive_workspace $black $black $dgray
 		urgent_workspace   $black $purple $white
 	}
@@ -273,4 +264,14 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+# autostart programs
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id compton -f --config ~/.i3/compton.conf
+exec --no-startup-id dunst -config ~/.i3/dunstrc
+exec --no-startup-id nm-applet
+exec --no-startup-id pidgin
+exec --no-startup-id volumeicon
+exec --no-startup-id SpiderOakONE
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id orage
 exec notify-send -a i3 "loaded" "Welcome to i3."
