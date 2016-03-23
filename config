@@ -146,7 +146,7 @@ bindsym $mod+n focus child
 set $WS1 1:
 set $WS2 2:
 set $WS3 3:
-set $WS4 4:
+set $WS4 4:
 set $WS5 5:
 set $WS6 6:
 set $WS7 7:
@@ -224,13 +224,13 @@ client.focused_inactive $black $black $white $black
 client.urgent           $purple   $purple   $white $purple
 
 bar {
-	i3bar_command /usr/bin/i3bar
+	i3bar_command /usr/bin/i3bar -t
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
 	height 25
 	position top
 	mode dock
 	tray_output primary
-	tray_padding 2
+	tray_padding 0
 	separator_symbol 
 	# separator_symbol 
 	# separator_symbol 
@@ -239,7 +239,7 @@ bar {
 	font pango:Fira Sans ExtraLight 8
 
 	colors {
-		background $black
+		background #28282892 # $black
 		separator $cyan
 		statusline $cyan
 		#                  border             background         text
