@@ -20,7 +20,7 @@ set $base0F #cc6633
 set $mod Mod4
 
 # font pango:FontAwesome 8, pango: SFNS Thin 8
-font pango:FontAwesome 8, pango: Fira Sans Light 8
+font pango:FontAwesome 10, pango: Fira Sans ExtraLight 8
 
 floating_modifier $mod
 workspace_auto_back_and_forth yes
@@ -42,6 +42,29 @@ exec --no-startup-id orage
 bindsym $mod+p exec --no-startup-id thunar /mnt/storo/GOLDO/
 bindsym $mod+Shift+f  exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id chromium
+
+# launch programs
+mode "launch" {
+	bindsym Print exec scrot, mode "default"
+
+	# Bind some on the ASD row
+	bindsym a exec geany, mode "default"	
+	bindsym s exec steam, mode "default"
+	bindsym d exec deluge, mode "defalt"
+	bindsym f exec firefox, mode "default"
+	bindsym g exec thunar, mode "default"
+	bindsym h exec skype, mode "default"
+
+	bindsym c exec chromium, mode "default"
+	bindsym t exec thunderbird, mode "default"
+	bindsym v exec vlc, mode "default"
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+m  mode "launch"
 
 #Gaps
 gaps inner 2
@@ -146,10 +169,10 @@ bindsym $mod+a focus parent
 #
 #	Set Workspace names with icons
 #
-set $WS1 1:
-set $WS2 2:
-set $WS3 3:
-set $WS4 4:
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
 set $WS5 5:
 set $WS6 6:
 set $WS7 7:
@@ -234,9 +257,9 @@ client.unfocused 				$base01 		$base01 		$base03 		$base01
 client.urgent 					$base02 		$base08 		$base07 		$base08
 
 bar {
-	i3bar_command /usr/bin/i3bar
+	i3bar_command /usr/bin/i3bar -t
  	status_command /usr/bin/i3blocks -c ~/.i3/i3-blocks.conf
-	height 20
+	height 25
 	position top
 	mode dock
 	tray_output primary
@@ -247,8 +270,8 @@ bar {
 	colors {
 		separator $base03
 		# Set as transparent
-		# background #38383012 # $base01
-		background $base01
+		background #38383092
+		#background $base01
 		statusline $base05
 		focused_workspace $base0C $base0D $base00
 		active_workspace $base02 $base02 $base07
