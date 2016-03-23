@@ -11,7 +11,7 @@ set $purple #b16286
 
 set $mod Mod4
 
-font pango:FontAwesome 10, pango: Fira Sans Medium 8
+font pango:FontAwesome 10, pango: Fira Sans ExtraLight 8
 
 #Gaps
 gaps inner 2
@@ -236,7 +236,7 @@ bar {
 	# separator_symbol 
 	binding_mode_indicator yes
 	strip_workspace_numbers yes
-	font pango:Fira Sans Medium 8
+	font pango:Fira Sans ExtraLight 8
 
 	colors {
 		background $black
