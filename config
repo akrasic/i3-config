@@ -265,7 +265,9 @@ bar {
 	tray_output primary
 	tray_padding 1
 	separator_symbol 
-	#separator_symbol |
+	binding_mode_indicator yes
+	strip_workspace_numbers yes
+	font pango:Fira Sans ExtraLight 8
 
 	colors {
 		separator $base03
