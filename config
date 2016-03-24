@@ -239,7 +239,7 @@ bar {
 	font pango:Fira Sans ExtraLight 8
 
 	colors {
-		background #28282892 # $black
+		background #28282895 # $black
 		separator $cyan
 		statusline $cyan
 		#                  border             background         text
