@@ -1,4 +1,4 @@
-#
+	#
 #====================== OLD COLOR SCHME
 set $base00 #272822
 set $base01 #383830
@@ -67,42 +67,12 @@ mode "launch" {
 bindsym $mod+m  mode "launch"
 
 #Gaps
-gaps inner 2
-gaps outer 2
+#gaps inner 2
+#gaps outer 2
 
-# borders
-
-new_window normal
-hide_edge_borders vertical
-bindsym Control+Shift+x [class="^.*"]e
-
-# Define borders
-for_window [class="^.*"] border pixel 1
-for_window [class="URxvt"] border normal
-for_window [class="Leafpad"] border normal
-for_window [class="Lxappearance"] border normal
-for_window [class="Vlc"] border pixel 0
-for_window [class="mpv"] border pixel 0
-for_window [class="Pcmanfm"] border pixel 0
-for_window [class="Firefox"] border pixel 0
-for_window [class="Geary"] border pixel 0
-for_window [class="Lmms"] border pixel 0
-for_window [class="Feh"] border pixel 0
-#FLOATING
-# for_window [title="Sonata"] floating enable
-for_window [title="SMPlayer"] floating enable
-for_window [title="Gajim"] floating enable
-for_window [title="Buddy List"] floating enable
-for_window [title="xfce4-notifyd"] floating enable
-for_window [class="(?i)(orage|globaltime)"] floating enable
-#for_window [class="(?i)(gajim|pidgin)"] floating enable
-for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
-for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
-for_window [class="SpiderOak"] floating enable; resize shrink right 31px
-
-# start a terminal
-bindsym $mod+Return exec urxvt -sbg
-#bindsym $mod+Return exec termite
+# borterminal
+#bindsym $mod+Return exec urxvt -sbg
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+q kill
@@ -206,8 +176,6 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym --release $mod+p exec mpc toggle
 bindsym --release $mod+Shift+period exec mpc next
 bindsym --release $mod+Shift+comma exec mpc prev
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -245,16 +213,16 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-#client.focused #81a2be #81a2be #1d1f21 #282a2e
-#client.focused_inactive #373b41 #373b41 #969896 #282a2e
-#client.unfocused #282a2e #282a2e #969896 #282a2e
-#client.urgent #373b41 #cc6666 #ffffff #cc6666
+client.focused #81a2be #81a2be #1d1f21 #282a2e
+client.focused_inactive #373b41 #373b41 #969896 #282a2e
+client.unfocused #282a2e #282a2e #969896 #282a2e
+client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 # colors                BORDER      BACKGROUND	TEXT        INDICATOR
-client.focused 					$base0D 		$base0D 		$base00			$base01
-client.focused_inactive $base02 		$base02 		$base03 		$base01
-client.unfocused 				$base01 		$base01 		$base03 		$base01
-client.urgent 					$base02 		$base08 		$base07 		$base08
+#client.focused 					$base0D 		$base0D 		$base00			$base01
+#client.focused_inactive $base02 		$base02 		$base03 		$base01
+#client.unfocused 				$base01 		$base01 		$base03 		$base01
+#client.urgent 					$base02 		$base08 		$base07 		$base08
 
 bar {
 	i3bar_command /usr/bin/i3bar -t
@@ -263,11 +231,11 @@ bar {
 	position top
 	mode dock
 	tray_output primary
-	tray_padding 1
+#	tray_padding 1
 	separator_symbol 
 	binding_mode_indicator yes
 	strip_workspace_numbers yes
-	font pango:Fira Sans ExtraLight 8
+	font pango:Fira Sans ExtraLight 9
 
 	colors {
 		separator $base03
@@ -285,7 +253,7 @@ bar {
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id lock, mode "default"
+    bindsym l exec --no-startup-id bash ~/.i3/bin/lock.sh, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id lock && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id lock && systemctl hibernate, mode "default"
@@ -297,8 +265,17 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+bindsym $mod+Delete mode "$mode_system"
 
 
 #xflux
 # exec xflux -l 51.5333408
 exec notify-send -a i3 "loaded" "Welcome to i3."
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
