@@ -172,6 +172,9 @@ bindsym $mod+Shift+8 move container to workspace number $WS8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+# Move workspace between outputs
+bindsym $mod+Tab exec i3-msg move workspace to output left
+
 # MEDIA KEYS
 bindsym --release $mod+p exec mpc toggle
 bindsym --release $mod+Shift+period exec mpc next
