@@ -31,7 +31,7 @@ if [[ "$BLUR" == "ON" ]]; then
 
   # Get the screenshot, add the blur and lock the screen with it
   $SCREENSHOT
-  convert $IMAGE -blur $BLURTYPE $IMAGE
+  convert $IMAGE -blur $BLURTYPE -brightness-contrast 2x35 -flip $IMAGE
   i3lock -i $IMAGE -t
   rm $IMAGE
 else
