@@ -53,7 +53,9 @@ class Weather
 end
 
 # city = 'Zagreb'
-city_id = '6618983'
+#city_id = '6618983'
+# Dublin city ID
+city_id ='2964574'
 out = Weather.new(city_id).show
 
 puts "#{out}"

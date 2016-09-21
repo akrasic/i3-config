@@ -1,0 +1,83 @@
+# --- APPLY XRES BEGIN
+c_red_l="CC6666"
+c_green_l="BDE077"
+c_cyan_d="72AD8C"
+c_cursor="fff000"
+c_yellow_d="FEA63C"
+c_green_d="B7CE42"
+c_yellow_l="FFE863"
+c_foreground="ddeedd"
+c_blue_l="AACCBB"
+c_magenta_l="ff5879"
+c_black_d="25374A"
+c_background="131D24"
+c_magenta_d="F26B9E"
+c_black_l="3A526B"
+c_blue_d="66AABB"
+c_white_l="FFFFFF"
+c_cyan_l="9FE3BC"
+c_red_d="BD4A4A"
+c_white_d="DDEEDD"
+# --- APPLY XRES END
+
+myres=$(xrandr | head -n 1 | sed -r 's/.*current\s([0-9]+)\sx\s([0-9]+).*/\1x\2/g')
+hour=$(date "+%H")
+hour=${hour#0*}
+if (( hour >= 0 )) && (( hour <= 4 )); then
+  # 12:00a - 4:59a
+  tod="Late Night"
+elif (( hour >= 5 )) && (( hour <= 7 )); then
+  # 5:00a - 7:59a
+  tod="Early Morning"
+elif (( hour >= 8 )) && (( hour <= 11 )); then
+  # 8:00a - 11:59p
+  tod="Morning"
+elif (( hour >= 12 )) && (( hour <= 15 )); then
+  # 12:00p - 3:59p
+  tod="Afternoon"
+elif (( hour >= 16 )) && (( hour <= 17 )); then
+  # 4:00p - 5:59p
+  tod="Late Afternoon"
+elif (( hour >= 18 )) && (( hour <= 20 )); then
+  # 6:00p - 8:59p
+  tod="Evening"
+elif (( hour >= 21 )) && (( hour <= 23 )); then
+  # 9:00p - 11:59p
+  tod="Night"
+fi
+
+bg="$c_background"  # Default background for undefined times of day
+fg="$c_foreground"
+case $tod in
+  "Late Night")
+    bg="$c_black_d"
+    fg="$c_black_l"
+    ;;
+  "Early Morning")
+    bg="$c_blue_d"
+    fg="$c_black_d"
+    ;;
+  "Morning")
+    bg="$c_cyan_d"
+    fg="$c_white_l"
+    ;;
+  "Afternoon")
+    bg="$c_white_l"
+    fg="$c_black_l"
+    ;;
+  "Late Afternoon")
+    bg="$c_yellow_d"
+    fg="$c_black_d"
+    ;;
+  "Evening")
+    bg="$c_background"
+    fg="$c_yellow_d"
+    ;;
+  "Night")
+    bg="$c_black_d"
+    fg="$c_blue_l"
+    ;;
+esac
+
+width=`echo ${myres} | cut -d 'x' -f 1`
+rofi -show run -width $width -fg "#$fg" -bg "#$bg" -hlbg "#$fg" -hlfg "#$bg" -bc "#$c_background" -location 0 -lines 8 -bw 0 -font "Inconsolata Bold 16" -padding 400 -separator-style none -opacity 85
