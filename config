@@ -56,8 +56,8 @@ mode "launch" {
 bindsym $mod+m  mode "launch"
 
 #Gaps
-#gaps inner 2
-#gaps outer 2
+gaps inner 2
+gaps outer 1
 
 # borterminal
 #bindsym $mod+Return exec urxvt -sbg
@@ -68,10 +68,6 @@ bindsym $mod+q kill
 
 # Menu
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 30 -padding 3 -opacity "80"  -font "System San Francisco Display 10"
-
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -i -dmenu -font "snap 12" -bg "#222222" -fg "#888888" -hlbg "#285577" -hlfg "#ffffff" -opacity 90 -m 0 -location 2'
-#bindsym $mod+d exec rofi -show run
-#bindsym $mod+d exec dmenu_run
 
 # change focus VIM KEYS
 bindsym $mod+h focus left
