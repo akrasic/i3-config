@@ -31,6 +31,7 @@ exec --no-startup-id orage
 bindsym $mod+p exec --no-startup-id thunar /mnt/storo/GOLDO/
 bindsym $mod+Shift+f  exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id chromium
+bindsym $mod+u exec bash ~/.i3/bin/monitors.sh
 
 # launch programs
 mode "launch" {
@@ -217,7 +218,7 @@ bar {
 	separator_symbol 
 	binding_mode_indicator yes
 	strip_workspace_numbers yes
-	font pango:Fira Sans ExtraLight 9
+	font pango:Fira Mono 9
 
 	colors {
 		background #28282895 # $black
