@@ -24,7 +24,7 @@ then
     #echo "Ψ $capacity% $symbol"
 
     # Short text
-    echo "Ψ $capacity% $symbol"
+    echo "  $capacity% $symbol"
 
     # Color
     if test $capacity -le $ALERT_LOW -a $status = "Discharging"
