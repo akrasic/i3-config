@@ -33,6 +33,17 @@ bindsym $mod+Shift+f  exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id chromium
 bindsym $mod+u exec bash ~/.i3/bin/monitors.sh
 
+# Setup floating
+for_window [title="SMPlayer"] floating enable
+for_window [title="Gajim"] floating enable
+for_window [title="Buddy List"] floating enable
+for_window [title="xfce4-notifyd"] floating enable
+for_window [class="(?i)(orage|globaltime)"] floating enable
+#for_window [class="(?i)(gajim|pidgin)"] floating enable
+for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
+for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
+for_window [class="SpiderOak"] floating enable; resize shrink right 31px
+
 # launch programs
 mode "launch" {
 	bindsym Print exec scrot, mode "default"
