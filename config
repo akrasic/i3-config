@@ -35,6 +35,7 @@ bindsym $mod+u exec bash ~/.i3/bin/monitors.sh
 
 # Setup floating
 for_window [title="SMPlayer"] floating enable
+for_window [title="ViberPC"] floating enable
 for_window [title="Gajim"] floating enable
 for_window [title="Buddy List"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
