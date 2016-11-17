@@ -1,13 +1,3 @@
-set $green #98971a
-set $red   #fb4934
-set $lgray #a89984
-set $dgray #928374
-set $white #ebdbb2
-set $black #282828
-set $blue  #458588
-set $cyan  #689d6a
-set $purple #b16286
-
 set $mod Mod4
 font pango:FontAwesome 10, pango: Fira Sans ExtraLight 8
 
@@ -211,13 +201,32 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Tomorrow theme
+# Based off https://github.com/chriskempson/tomorrow-theme
+#
+set $tbackground #1d1f21
+set $tforeground #c5c8c6
+set $tcurrentline #282a2e
+set $tselect #373b41
+set $tblue #81a2be
+set $taqua #8abeb7
+set $tred #cc6666
+set $tpurple #b294bb
+set $tcomment #969896
+
+#                        BORDER        BACKGROUND    TEXT            INDICATOR
+client.focused          $tselect  $tselect   $taqua          $taqua
+client.unfocused        $tbackground  $tbackground  $tcomment   $tred
+client.focused_inactive $tbackground  $tbackground  $tcurrentline    $tbackground
+client.urgent           $tred         $tred         $tforeground    $tpurple
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # colors                BORDER      BACKGROUND  TEXT        INDICATOR
-client.focused          $cyan $cyan $black $cyan
-client.unfocused        $black $black $dgray $black
-client.focused_inactive $black $black $white $black
-client.urgent           $purple   $purple   $white $purple
+# client.focused          $cyan $cyan $black $cyan
+# client.unfocused        $black $black $dgray $black
+# client.focused_inactive $black $black $white $black
+# client.urgent           $purple   $purple   $white $purple
 
 bar {
 	i3bar_command /usr/bin/i3bar -t
@@ -232,15 +241,25 @@ bar {
 	strip_workspace_numbers yes
 	font pango:Fira Mono 9
 
-	colors {
-		background #28282895 # $black
-		separator $cyan
-		statusline $cyan
+  colors {
+    background $tbackground
+    separator  $tselect
+    statusline $tselect
+
+    focused_workspace $tselect $tselect $taqua
+    inactive_workspace $tbackground $tbackground $tselect
+    urgent_workspace   $tbackground $tbackground $tred
+
+  }
+	# colors {
+	#	background #28282895 # $black
+	#	separator $cyan
+	#	statusline $cyan
 		#                  border             background         text
-		focused_workspace  $black $cyan $white
-		inactive_workspace $black $black $dgray
-		urgent_workspace   $black $purple $white
-	}
+	#	focused_workspace  $black $cyan $white
+	#	inactive_workspace $black $black $dgray
+	#	urgent_workspace   $black $purple $white
+	# }
 }
 
 
