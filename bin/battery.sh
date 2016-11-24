@@ -46,7 +46,7 @@ then
 	fi
 
     # Full text
-	echo "$baticon $capacity% $remaining"
+	echo "$baticon  $capacity% $remaining"
     # Short text
     #echo "Ψ $capacity% $symbol"
 
