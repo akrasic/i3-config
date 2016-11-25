@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:FontAwesome 10, pango: Fira Sans ExtraLight 8
+font pango:FontAwesome 10, pango: Fira Mono Regular 8
 
 floating_modifier $mod
 workspace_auto_back_and_forth yes
@@ -59,11 +59,10 @@ mode "launch" {
 bindsym $mod+m  mode "launch"
 
 #Gaps
-gaps inner 2
-gaps outer 1
+gaps inner 3
+gaps outer 3
 
 # borterminal
-#bindsym $mod+Return exec urxvt -sbg
 bindsym $mod+Return exec termite
 
 # kill focused window
@@ -201,32 +200,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Tomorrow theme
-# Based off https://github.com/chriskempson/tomorrow-theme
+# Adapta theme colors
 #
-set $tbackground #1d1f21
-set $tforeground #c5c8c6
-set $tcurrentline #282a2e
-set $tselect #373b41
-set $tblue #81a2be
-set $taqua #8abeb7
-set $tred #cc6666
-set $tpurple #b294bb
-set $tcomment #969896
+set $abase #455A64
+set $abgcolor #3E515A
+set $atxt #ECEFF1
+set $atxtfg #ECEFF1
+set $aselectbg #00BCD4
+set $aselectfg #FFFFFF
+set $attbg #2A373E
+set $attfg #ECEFF1
 
 #                        BORDER        BACKGROUND    TEXT            INDICATOR
-client.focused          $tselect  $tselect   $taqua          $taqua
-client.unfocused        $tbackground  $tbackground  $tcomment   $tred
-client.focused_inactive $tbackground  $tbackground  $tcurrentline    $tbackground
-client.urgent           $tred         $tred         $tforeground    $tpurple
+client.focused          $aselectbg    $aselectbg    $abase    $atxt
+client.unfocused        $abgcolor     $abgcolor     $atxt           $atxt
+client.focused_inactive $abgcolor     $abgcolor     $atxtfg         $atxtbg
+client.urgent           $aselectbg    $aselectbg    $aselectfg      $aselectfg
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# colors                BORDER      BACKGROUND  TEXT        INDICATOR
-# client.focused          $cyan $cyan $black $cyan
-# client.unfocused        $black $black $dgray $black
-# client.focused_inactive $black $black $white $black
-# client.urgent           $purple   $purple   $white $purple
 
 bar {
 	i3bar_command /usr/bin/i3bar -t
@@ -235,31 +225,22 @@ bar {
 	position top
 	mode dock
 	tray_output primary
-#	tray_padding 1
+	tray_padding 0
 	separator_symbol 
 	binding_mode_indicator yes
 	strip_workspace_numbers yes
-	font pango:Fira Mono 9
+	font pango:Fira Mono Regular 8
 
   colors {
-    background $tbackground
-    separator  $tselect
-    statusline $tselect
+    background $abgcolor
+    separator  $atxtfg
+    statusline $atxtfg
 
-    focused_workspace $tselect $tselect $taqua
-    inactive_workspace $tbackground $tbackground $tselect
-    urgent_workspace   $tbackground $tbackground $tred
-
+    focused_workspace $aselectbg $aselectbg $aselectfg
+    active_workspace  $aselectbg $aselectbg $atxt
+    inactive_workspace $abgcolor $abgcolor $atxt
+    urgent_workspace  $abgcolor $attfg $attbg
   }
-	# colors {
-	#	background #28282895 # $black
-	#	separator $cyan
-	#	statusline $cyan
-		#                  border             background         text
-	#	focused_workspace  $black $cyan $white
-	#	inactive_workspace $black $black $dgray
-	#	urgent_workspace   $black $purple $white
-	# }
 }
 
 
@@ -282,7 +263,6 @@ bindsym $mod+Delete mode "$mode_system"
 
 #xflux
 # exec xflux -l 51.5333408
-exec notify-send -a i3 "loaded" "Welcome to i3."
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
