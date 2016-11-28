@@ -35,6 +35,7 @@ for_window [class="(?i)lxappearance"] floating enable; resize shrink right 31px
 for_window [class="(?i)pavucontrol"] floating enable; resize shrink right 31px
 for_window [class="SpiderOak"] floating enable; resize shrink right 31px
 
+for_window[class="Plank"] floating enable,move absolute center
 # launch programs
 mode "launch" {
 	bindsym Print exec scrot, mode "default"
@@ -210,12 +211,13 @@ set $aselectbg #00BCD4
 set $aselectfg #FFFFFF
 set $attbg #2A373E
 set $attfg #ECEFF1
+set $urgentbg #FF5252
 
 #                        BORDER        BACKGROUND    TEXT            INDICATOR
 client.focused          $aselectbg    $aselectbg    $abase    $atxt
 client.unfocused        $abgcolor     $abgcolor     $atxt           $atxt
 client.focused_inactive $abgcolor     $abgcolor     $atxtfg         $atxtbg
-client.urgent           $aselectbg    $aselectbg    $aselectfg      $aselectfg
+client.urgent           $urgentbg    $urgentbg    $aselectfg      $aselectfg
 
 
 bar {
@@ -239,7 +241,7 @@ bar {
     focused_workspace $aselectbg $aselectbg $aselectfg
     active_workspace  $aselectbg $aselectbg $atxt
     inactive_workspace $abgcolor $abgcolor $atxt
-    urgent_workspace  $abgcolor $attfg $attbg
+    urgent_workspace  $urgentbg $attfg $urgentbg
   }
 }
 
